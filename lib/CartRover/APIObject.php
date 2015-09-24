@@ -13,7 +13,7 @@ class APIObject {
 	 * @param string $endpoint
 	 * @param array $post_array
 	 * @throws CRError
-	 * @return array Response as array
+	 * @return mixed "response" portion Response as array or TRUE if successful but no "response" portion.
 	 */
 	protected static function make_api_call($api_user, $api_key, $endpoint, $post_array=null){
 		
@@ -58,7 +58,7 @@ class APIObject {
 			throw new CRError($jsonPayload['message'], $http_status, $responseBody);
 		}
 		
-		return $jsonPayload['response'];
+		return (!empty($jsonPayload['response'])) ? $jsonPayload['response'] : true;
 	}
 	
 	/**

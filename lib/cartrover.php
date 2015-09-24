@@ -31,7 +31,9 @@ class cartrover {
 		
 		require(dirname(__FILE__) . '/CartRover/CRError.php');
 		require(dirname(__FILE__) . '/CartRover/APIObject.php');
+		
 		require(dirname(__FILE__) . '/CartRover/OrderSource.php');
+		require(dirname(__FILE__) . '/CartRover/WMS.php');
 	}
 	
 	/**
@@ -42,18 +44,33 @@ class cartrover {
 		return OrderSource::ListAll($this->api_user, $this->api_key);
 	}
 	
+	/**
+	 * Return a list of all ship methods setup for this WMS
+	 * @return array
+	 */
 	public function ListWMSShipMethods(){
-		//TODO: 
-		//return WMS::ListShipMethods($this->api_user, $this->api_key);
+		return WMS::ListShipMethods($this->api_user, $this->api_key);
 	}
 	
+	/**
+	 * Return a list of all Ship Methods for the given Cart / Order Source.
+	 * Also returns what WMS ship methods they are mapped to.
+	 * @param string $order_source
+	 * @return array
+	 */
 	public function ListCartShipMethods($order_source){
 		return OrderSource::ListShipMethods($this->api_user, $this->api_key, $order_source);
 	}
 	
+	/**
+	 * Add or update the given list of ship methods.
+	 * Post array takes a list of associative arrays each of which requires a cart_code. Can optionally pass a wms_code that it should be mapped to. Must be either a valid WMS Ship Method or NULL (for passthrough/no mapping)
+	 * @param string $order_source
+	 * @param array $cart_codes_array Array Format: [ { "cart_code": "Express", "wms_code": "20" }, { "cart_code": "Standard", "wms_code": NULL } ]
+	 * @return type
+	 */
 	public function UpdateCartShipMethod($order_source, $cart_codes_array){
-		//TODO: 
-		//return OrderSource::UpdateShipMethods($this->api_user, $this->api_key);
+		return OrderSource::UpdateShipMethods($this->api_user, $this->api_key, $order_source, $cart_codes_array);
 	}
 	
 }
