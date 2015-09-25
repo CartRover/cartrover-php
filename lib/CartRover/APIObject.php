@@ -4,8 +4,7 @@ namespace CartRover;
 
 class APIObject {
 	
-	//TODO: Switch to production URL
-	private static $api_base = 'http://192.168.177.46:8000/api/';
+	private static $api_base = 'https://api.cartrover.com/';
 	private static $api_version = 'v1';
 	
 	/**
