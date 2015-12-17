@@ -26,9 +26,7 @@ class Orders extends APIObject {
 	public static function CancelOrder($api_user, $api_key, $cust_ref){
 		$endpoint = '/cart/orders/cancel/cartrover';
 		$post_array = array(
-			array(
-				'cust_ref' => $cust_ref
-			)
+			'cust_ref' => $cust_ref
 		);
 		return APIObject::make_api_call($api_user, $api_key, $endpoint, $post_array);
 	}
