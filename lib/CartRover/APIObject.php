@@ -76,7 +76,7 @@ class APIObject {
 				break;
 			case CURLE_SSL_CACERT:
 			case CURLE_SSL_PEER_CERTIFICATE:
-				$msg = 'Could not verify CartRover\'s SSL certificate. Make sure you can access '.APIObject::api_base.' in your browser and that your SSL version supports SNI. If this problem persists, let us know at info@cartrover.com';
+				$msg = 'Could not verify CartRover\'s SSL certificate. Make sure you can access '.APIObject::$api_base.' in your browser and that your SSL version supports SNI. If this problem persists, let us know at info@cartrover.com';
 				break;
 			default:
 				$msg = 'Unexpected error communicating with CartRover. If this problem persists please let us know at info@cartrover.com';

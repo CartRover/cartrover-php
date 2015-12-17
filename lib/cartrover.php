@@ -32,6 +32,7 @@ class cartrover {
 		require(dirname(__FILE__) . '/CartRover/CRError.php');
 		require(dirname(__FILE__) . '/CartRover/APIObject.php');
 		
+		require(dirname(__FILE__) . '/CartRover/Orders.php');
 		require(dirname(__FILE__) . '/CartRover/OrderSource.php');
 		require(dirname(__FILE__) . '/CartRover/WMS.php');
 	}
@@ -71,6 +72,28 @@ class cartrover {
 	 */
 	public function UpdateCartShipMethod($order_source, $cart_codes_array){
 		return OrderSource::UpdateShipMethods($this->api_user, $this->api_key, $order_source, $cart_codes_array);
+	}
+	
+	/**
+	 * Insert one or more orders into CartRover
+	 * @param string $api_user
+	 * @param string $api_key
+	 * @param array $orders_array Array of orders, even if only one. See here for format: https://ciodirect.atlassian.net/wiki/display/CART/CartRover+API
+	 * @return array
+	 */
+	public function CreateOrders($api_user, $api_key, $orders_array){
+		return Orders::CreateOrders($api_user, $api_key, $orders_array);
+	}
+	
+	/**
+	 * Cancel an order in CartRover. This may fail if you wait too long to cancel the order after its creation
+	 * @param string $api_user
+	 * @param string $api_key
+	 * @param array $cust_ref cust_ref of order to cancel
+	 * @return array
+	 */
+	public function CancelOrder($api_user, $api_key, $cust_ref){
+		return Orders::CancelOrder($api_user, $api_key, $cust_ref);
 	}
 	
 }
