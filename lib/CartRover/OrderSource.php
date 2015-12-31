@@ -10,8 +10,19 @@ class OrderSource extends APIObject {
 	 * @param string $api_key
 	 * @return array
 	 */
-	public static function ListAll($api_user, $api_key){
+	public static function ListCarts($api_user, $api_key){
 		$endpoint = '/cart/list';
+		return APIObject::make_api_call($api_user, $api_key, $endpoint);
+	}
+	
+	/**
+	 * Return a list of all possible Carts that can be setup
+	 * @param string $api_user
+	 * @param string $api_key
+	 * @return array
+	 */
+	public static function ListAllCarts($api_user, $api_key){
+		$endpoint = '/cart/listall';
 		return APIObject::make_api_call($api_user, $api_key, $endpoint);
 	}
 	

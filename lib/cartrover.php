@@ -42,7 +42,15 @@ class cartrover {
 	 * @return array
 	 */
 	public function ListCarts(){
-		return OrderSource::ListAll($this->api_user, $this->api_key);
+		return OrderSource::ListCarts($this->api_user, $this->api_key);
+	}
+	
+	/**
+	 * Return a list of all possible Carts that can be setup.
+	 * @return array
+	 */
+	public function ListAllCarts(){
+		return OrderSource::ListAllCarts($this->api_user, $this->api_key);
 	}
 	
 	/**
