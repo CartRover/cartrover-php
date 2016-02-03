@@ -31,4 +31,16 @@ class Orders extends APIObject {
 		return APIObject::make_api_call($api_user, $api_key, $endpoint, $post_array);
 	}
 	
+	/**
+	 * View an order in CartRover.
+	 * @param string $api_user
+	 * @param string $api_key
+	 * @param array $cust_ref cust_ref of order to view
+	 * @return array
+	 */
+	public static function ViewOrder($api_user, $api_key, $cust_ref){
+		$endpoint = '/merchant/orders/'.$cust_ref;
+		return APIObject::make_api_call($api_user, $api_key, $endpoint);
+	}
+	
 }
