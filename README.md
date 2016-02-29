@@ -1,6 +1,8 @@
 # cartrover-php
 CartRover is a service that lets you easily pull orders from most of the popular ecommerce shopping carts and marketplaces. This PHP Client Library provides easier access to the https://CartRover.com API.
 
+Official API documentation and endpoint list is at: https://ciodirect.atlassian.net/wiki/display/CART/CartRover+API+Documentation
+
 Installation
 ------------
 
