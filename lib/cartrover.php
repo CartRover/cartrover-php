@@ -86,7 +86,7 @@ class cartrover {
 	 * Insert one or more orders into CartRover
 	 * @param string $api_user
 	 * @param string $api_key
-	 * @param array $orders_array Array of orders, even if only one. See here for format: https://ciodirect.atlassian.net/wiki/display/CART/Orders+Endpoint+-+Orders+API
+	 * @param array $orders_array Array of orders, even if only one. See here for format: https://cartrover.atlassian.net/wiki/pages/viewpage.action?pageId=3997742
 	 * @return array
 	 */
 	public function CreateOrders($api_user, $api_key, $orders_array){
