@@ -72,14 +72,14 @@ class APIObject {
 			case CURLE_COULDNT_CONNECT:
 			case CURLE_COULDNT_RESOLVE_HOST:
 			case CURLE_OPERATION_TIMEOUTED:
-				$msg = 'Could not connect to CartRover ('.APIObject::$api_base.'). Please check your internet connection and try again. If this problem persists please let us know at info@cartrover.com';
+				$msg = 'Could not connect to CartRover ('.APIObject::$api_base.'). Please check your internet connection and try again. If this problem persists please let us know at help@cartrover.com';
 				break;
 			case CURLE_SSL_CACERT:
 			case CURLE_SSL_PEER_CERTIFICATE:
-				$msg = 'Could not verify CartRover\'s SSL certificate. Make sure you can access '.APIObject::$api_base.' in your browser and that your SSL version supports SNI. If this problem persists, let us know at info@cartrover.com';
+				$msg = 'Could not verify CartRover\'s SSL certificate. Make sure you can access '.APIObject::$api_base.' in your browser and that your SSL version supports SNI. If this problem persists, let us know at help@cartrover.com';
 				break;
 			default:
-				$msg = 'Unexpected error communicating with CartRover. If this problem persists please let us know at info@cartrover.com';
+				$msg = 'Unexpected error communicating with CartRover. If this problem persists please let us know at help@cartrover.com';
 		}
 		$msg .= "\nNetwork error [errno {$errno}]: {$message})";
 		throw new CRError($msg);
