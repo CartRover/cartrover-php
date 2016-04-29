@@ -16,7 +16,7 @@ Usage
 -------
 ```php
 // Include the library
-require_once /path/to/lib/cartrover.php';
+require_once '/path/to/lib/cartrover.php';
 
 // Pass credentials to the constructor
 $cartrover = new \CartRover\cartrover($api_user, $api_key);
