@@ -14,12 +14,15 @@ class APIObject {
 	 * @throws CRError
 	 * @return mixed "response" portion Response as array or TRUE if successful but no "response" portion.
 	 */
-	protected static function make_api_call($api_user, $api_key, $endpoint, $post_array=null){
+	protected static function make_api_call($api_user, $api_key, $endpoint, $post_array=null, $get_array=array()){
 		
 		$url = APIObject::$api_base . APIObject::$api_version . $endpoint.'?'.http_build_query(
-				array(
-					'api_user' => $api_user,
-					'api_key' => $api_key
+				array_merge(
+					array(
+						'api_user' => $api_user,
+						'api_key' => $api_key
+					),
+					$get_array
 				)
 			);
 		

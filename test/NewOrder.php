@@ -37,7 +37,7 @@ $orders_array = array(
 
 
 try{
-	$sources = $cartrover->CreateOrders($api_user, $api_key, $orders_array);
+	$sources = $cartrover->CreateOrders($orders_array);
 } catch (\CartRover\CRError $ex) {
 	echo 'ERROR: '.$ex->getMessage()."\n";
 	echo 'HTTP Status: '.$ex->getHttpStatus()."\n";
@@ -48,7 +48,7 @@ try{
 
 /*
 try{
-	$sources = $cartrover->CancelOrder($api_user, $api_key, 'TEST1');
+	$sources = $cartrover->CancelOrder('TEST1');
 } catch (\CartRover\CRError $ex) {
 	echo 'ERROR: '.$ex->getMessage()."\n";
 	echo 'HTTP Status: '.$ex->getHttpStatus()."\n";

@@ -32,6 +32,7 @@ class cartrover {
 		require(dirname(__FILE__) . '/CartRover/CRError.php');
 		require(dirname(__FILE__) . '/CartRover/APIObject.php');
 		
+		require(dirname(__FILE__) . '/CartRover/Merchant.php');
 		require(dirname(__FILE__) . '/CartRover/Orders.php');
 		require(dirname(__FILE__) . '/CartRover/OrderSource.php');
 		require(dirname(__FILE__) . '/CartRover/WMS.php');
@@ -84,35 +85,46 @@ class cartrover {
 	
 	/**
 	 * Insert one or more orders into CartRover
-	 * @param string $api_user
-	 * @param string $api_key
 	 * @param array $orders_array Array of orders, even if only one. See here for format: https://cartrover.atlassian.net/wiki/pages/viewpage.action?pageId=3997742
 	 * @return array
 	 */
-	public function CreateOrders($api_user, $api_key, $orders_array){
-		return Orders::CreateOrders($api_user, $api_key, $orders_array);
+	public function CreateOrders($orders_array){
+		return Orders::CreateOrders($this->api_user, $this->api_key, $orders_array);
 	}
 	
 	/**
 	 * Cancel an order in CartRover. This may fail if you wait too long to cancel the order after its creation
-	 * @param string $api_user
-	 * @param string $api_key
 	 * @param array $cust_ref cust_ref of order to cancel
 	 * @return array
 	 */
-	public function CancelOrder($api_user, $api_key, $cust_ref){
-		return Orders::CancelOrder($api_user, $api_key, $cust_ref);
+	public function CancelOrder($cust_ref){
+		return Orders::CancelOrder($this->api_user, $this->api_key, $cust_ref);
 	}
 	
 	/**
 	 * View an order in CartRover.
-	 * @param string $api_user
-	 * @param string $api_key
 	 * @param array $cust_ref cust_ref of order to view
 	 * @return array
 	 */
-	public function ViewOrder($api_user, $api_key, $cust_ref){
-		return Orders::ViewOrder($api_user, $api_key, $cust_ref);
+	public function ViewOrder($cust_ref){
+		return Orders::ViewOrder($this->api_user, $this->api_key, $cust_ref);
 	}
 	
+	/**
+	 * Return a list of all products/inventory
+	 * @param array $get_params Notably limit and page. Default: array('limit'=>20, 'page'=>1)
+	 * @return array
+	 */
+	public function ListInventory($get_params=array('limit'=>20, 'page'=>1)){
+		return Merchant::ListInventory($this->api_user, $this->api_key, $get_params);
+	}
+	
+	/**
+	 * Return a specific product
+	 * @param string $sku Product to lookup
+	 * @return array
+	 */
+	public function GetProdInventory($sku){
+		return Merchant::GetProdInventory($this->api_user, $this->api_key, $sku);
+	}
 }
