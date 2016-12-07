@@ -18,6 +18,10 @@ engines:
         enabled: false
       Controversial/CamelCaseVariableName:
         enabled: false
+      Controversial/CamelCaseMethodName:
+        enabled: false
+      Controversial/CamelCaseClassName:
+        enabled: false
 ratings:
   paths:
   - "**.inc"
