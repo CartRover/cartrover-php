@@ -11,6 +11,9 @@ engines:
     enabled: true
   phpmd:
     enabled: true
+    checks:
+      Controversial/CamelCasePropertyName:
+        enabled: false
 ratings:
   paths:
   - "**.inc"
