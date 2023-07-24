@@ -14,8 +14,8 @@ class cartrover {
 	
 	/**
 	 * Constructor sets API credentials
-	 * @param type $api_user
-	 * @param type $api_key
+	 * @param string $api_user
+	 * @param string $api_key
 	 * @throws \Exception
 	 */
 	function __construct($api_user, $api_key){
@@ -77,7 +77,7 @@ class cartrover {
 	 * Post array takes a list of associative arrays each of which requires a cart_code. Can optionally pass a wms_code that it should be mapped to. Must be either a valid WMS Ship Method or NULL (for passthrough/no mapping)
 	 * @param string $order_source
 	 * @param array $cart_codes_array Array Format: [ { "cart_code": "Express", "wms_code": "20" }, { "cart_code": "Standard", "wms_code": NULL } ]
-	 * @return type
+	 * @return array
 	 */
 	public function UpdateCartShipMethod($order_source, $cart_codes_array){
 		return OrderSource::UpdateShipMethods($this->api_user, $this->api_key, $order_source, $cart_codes_array);
@@ -103,7 +103,7 @@ class cartrover {
 	
 	/**
 	 * View an order in CartRover.
-	 * @param array $cust_ref cust_ref of order to view
+	 * @param string $cust_ref cust_ref of order to view
 	 * @return array
 	 */
 	public function ViewOrder($cust_ref){

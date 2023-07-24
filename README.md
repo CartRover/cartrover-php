@@ -1,11 +1,11 @@
-[![Code Climate](https://codeclimate.com/github/CartRover/cartrover-php/badges/gpa.svg)](https://codeclimate.com/github/CartRover/cartrover-php)
-
 # cartrover-php
-CartRover is a service that lets you easily pull orders from most of the popular ecommerce shopping carts and marketplaces. This PHP Client Library provides easier access to the https://www.CartRover.com API.
+Extensiv Integration Manager (Formerly CartRover) is a service that lets you easily pull orders from most of the popular ecommerce shopping carts and marketplaces. This PHP Client Library provides easier access to the https://www.extensiv.com/extensiv-integration-manager API.
 
-Official API documentation and endpoint list is at: https://api.cartrover.com/
+Official API endpoint: https://api.cartrover.com/
 
-Installation
+Official Documentation at: https://developers.cartrover.com/
+
+Manual Installation
 ------------
 
  **Require Library**

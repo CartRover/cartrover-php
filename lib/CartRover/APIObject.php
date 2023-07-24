@@ -16,15 +16,7 @@ class APIObject {
 	 */
 	protected static function make_api_call($api_user, $api_key, $endpoint, $post_array=null, $get_array=array()){
 		
-		$url = APIObject::$api_base . APIObject::$api_version . $endpoint.'?'.http_build_query(
-				array_merge(
-					array(
-						'api_user' => $api_user,
-						'api_key' => $api_key
-					),
-					$get_array
-				)
-			);
+		$url = APIObject::$api_base . APIObject::$api_version . $endpoint.'?'.http_build_query($get_array);
 		
 		$header = array(
 			'User-Agent: CartRover PhpClient/'.APIObject::$api_version,
@@ -34,6 +26,7 @@ class APIObject {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+		curl_setopt($ch, CURLOPT_USERPWD, $api_user . ':' . $api_key);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		if($post_array){

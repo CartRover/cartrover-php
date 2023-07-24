@@ -44,7 +44,7 @@ class CRError extends \Exception
 
 	/**
 	 * Get the full body of the CartRover server response
-	 * @return type
+	 * @return string
 	 */
     public function getHttpBody()
     {
@@ -53,7 +53,7 @@ class CRError extends \Exception
 	
 	/**
 	 * Get the error level as reported by CartRover
-	 * @return type
+	 * @return string
 	 */
 	public function getErrorLevel()
     {
@@ -62,7 +62,7 @@ class CRError extends \Exception
 	
 	/**
 	 * Get an array of additional info if provided by CartRover response
-	 * @return type
+	 * @return array
 	 */
 	public function getAdditionalInfo(){
 		return $this->additionalInfo;
